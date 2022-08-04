@@ -7,9 +7,13 @@
 ## how to setup the project
 01) Navigate to 'version2' named branch of this repository
 
+## things i referred
+- Laravel documentation
+- Stackoverflow
+
 ## things i learnt
 - I was familiar with GitHub Desktop, but this time i learned to work with cmd
-- Exposed to composer dependancy manager, Blade UI components, 
+- Exposed to composer dependancy manager, Blade UI components
 
 
 
