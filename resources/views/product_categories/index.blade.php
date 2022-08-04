@@ -23,39 +23,22 @@
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                @foreach ($categories as $category)
+                @foreach ($product_categories as $category)
                 <tr>
                     <td>{{$category->id}}</td>
                     <td>{{$category->category_name}}</td>
-                    <td><a type="button" class="btn-warning btn-sm text-dark font-bold">Edit</a> <a type="button" class="btn-danger btn-sm text-light font-bold">Delete</a></td>
-                 
-                  
+                    <td><a type="button" class="btn-warning btn-sm text-dark font-bold">Edit</a> <a type="button" class="mx-2 btn-danger btn-sm text-light font-bold">Delete</a></td>   
                 </tr> 
                 @endforeach
             </tbody>
             <tfoot>
-                <a type="button" class="btn btn-success btn-sm  text-light" style="margin-bottom:1rem"  > Add New Category</label></a> 
+                <x-anchor class="mb-3" style="text-decoration:none"  href="{{ route('product_categories.create') }}" > Add New Category</x-anchor> 
        </tfoot>
               </table>
+              {!! $product_categories->render() !!}
         </div>
     </div>
-    <div id="footer"><div class="container-fluid px-4">
-        <div class="d-flex align-items-center justify-content-center small">
-          <div class="text-dark">Copyright &copy; SyntCode 2021</div>
-        </div>
-      </div>
-    </div>
+  
     
 </x-app-layout>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<style>
-    #footer {
-        position: fixed;
-        padding: 10px 10px 0px 10px;
-        bottom: 0;
-        width: 100%;
-        /* Height of the footer*/ 
-        height: 40px;
-        background: rgb(224, 193, 246)
-    }
-</style>
