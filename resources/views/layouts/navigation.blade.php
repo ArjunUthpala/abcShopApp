@@ -5,14 +5,8 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <div class=" bg-indigo-300 pt-2 pb-1 px-2 mx-2 overflow-hidden shadow-lg" style=" text-align: center; border-radius:10px">
-                            <h1 class="text-xl text-indigo-800" style="font-weight:bolder">ABC Shop App</h1>
-                           </div>
-                    </a>
-                </div>
-
-               
+                    <a type="button" href="{{ route('dashboard') }}" class="text-2xl text-indigo-800 bg-indigo-300 pt-1 pb-1 px-2 mx-2 overflow-hidden shadow-lg" style=" text-align: center; border-radius:10px; font-weight:bolder;  text-decoration: none;">ABC Shop App</a>  
+                </div> 
             </div>
 
             <!-- Settings Dropdown -->
