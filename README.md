@@ -1,3 +1,21 @@
+# abcShopApp
+
+- PHP version - 8.1.6
+- Laravel version - 9.23.0
+- Front-end UI - laravel breeze starter kit, Bootstrap
+
+## how to setup the project
+01) Navigate to 'version2' named branch of this repository
+
+## things i learnt
+- I was familiar with GitHub Desktop, but this time i learned to work with cmd
+- Exposed to composer dependancy manager, Blade UI components, 
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
