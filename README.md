@@ -5,7 +5,8 @@
 - Front-end UI - laravel breeze starter kit, Bootstrap
 
 ## how to setup the project
-01) Navigate to 'version2' named branch of this repository
+1) To configure this application locally XAMPP server, Composer, Node Js need to be pre-installed
+2) Navigate to 'version3' named branch of this repository
 
 ## things i referred
 - Laravel documentation
