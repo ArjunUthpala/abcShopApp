@@ -6,7 +6,14 @@
 
 ## how to setup the project
 1) To configure this application locally XAMPP server, Composer, Node Js need to be pre-installed
-2) Navigate to 'version3' named branch of this repository
+2) Navigate to 'version3' named branch of this repository, clone it or download and position it locally
+3) cd(naviagte) to the project base file using terminal
+4) install composer dependensies { composer install }
+5) install npm dependencies { npm install }
+6) make a local .env file { cp .env.example .env }
+7) import mySql database to the server or migrate schema from the terminal { php artisan migrate }
+8) run the application on PHP development server { php artisan serve}
+9) serve the project via { npm run dev }
 
 ## things i referred
 - Laravel documentation
