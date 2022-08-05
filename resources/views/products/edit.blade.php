@@ -9,7 +9,7 @@
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 bg-yellow-300 border-b border-gray-200">
                    
-                    <form action="{{ route('products.update', $product->id) }}" method="POST">
+                    <form action="{{ route('products.update', $product) }}" method="POST">
                         @method('put')
                         @csrf
                         <label class="font-bold">Product Name</label>
@@ -49,7 +49,7 @@
                         @enderror
                         <label class="font-bold">Product Category</label>
                         <select name="product_category_id" id="product_category_id" class="w-full  rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" >
-                            <option value="" class="" disabled selected>{{ $categorydata->category_name}}</option>
+                            <option value="{{ $categorydata->id }}" class=""  selected>{{ $categorydata->category_name}}</option>
                             @foreach ($category_types as $type)
                             <option value="{{ $type->id }}">{{ $type->category_name }}</option>    
                             @endforeach

@@ -12,6 +12,9 @@
                 <thead>
                     <tr>
                         <td>
+                          
+                        </td>
+                        <td>
                             Id
                         </td>
                         <td>
@@ -35,11 +38,13 @@
                         <td>
                           
                         </td>
+                     
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                 @foreach ($products as $product)
                 <tr>
+                    <td><a type="button" href="{{ route('products.edit', $product->id) }}" class="btn-warning btn-sm text-dark font-bold">Edit Product</a>
                     <td>{{$product->id}}</td>
                     <td>{{$product->product_name}}</td>
                     <td>{{$product->product_brand}}</td>
@@ -47,7 +52,17 @@
                     <td>{{$product->price}}</td>
                     <td>{{$product->weight}}</td>
                     <td>{{$product->category_name}}</td>
-                    <td><a type="button" href="{{ route('products.edit', $product->id) }}" class="btn-warning btn-sm text-dark font-bold">Edit</a> <a type="button" class="mx-2 btn-danger btn-sm text-light font-bold">Delete</a></td>   
+                   
+                        
+                       
+                    </td>
+                    <td>
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" >
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="mx-2 btn-danger btn-sm text-light font-bold" onclick="return confirm('Please confirm product removal?')">Delete Product</button>
+                        </form>
+                    </td>
                 </tr> 
                 @endforeach
             </tbody>

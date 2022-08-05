@@ -36,6 +36,7 @@
        </tfoot>
               </table>
               {!! $product_categories->render() !!}
+              <x-anchor class="mb-3 ml-auto" style="text-decoration:none"  href="{{ route('dashboard') }}" > Back to Home</x-anchor> 
         </div>
     </div>
   

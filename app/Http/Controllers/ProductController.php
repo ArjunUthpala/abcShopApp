@@ -16,17 +16,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $category = ProductCategory::findOrFail(1);
+       // $category = ProductCategory::findOrFail(1);
 
         $products = DB::table('products')
         ->join('product_categories', 'product_categories.id', '=', 'products.product_category_id')
-        ->select('products.*','product_categories.*')
+        ->select('products.*','product_categories.category_name')
       //  ->where('product_categories.category_name', $category)
         ->paginate(7);
         
-      //  dd($products);
-        //$products = Product::paginate(7);
-        return view('products.index')->with('products', $products);
+    // dd($products);
+       // $products = Product::paginate(7);
+       return view('products.index')->with('products', $products);
     }
 
     /**
@@ -56,7 +56,7 @@ class ProductController extends Controller
             'quantity' => 'required|max:8',
             'price' => 'required|max:8',
             'weight' => 'required|max:8',
-            'product_category_id' => 'required|max:8',
+            'product_category_id' => 'max:8',
         ]);
 
         Product::create([
@@ -111,9 +111,27 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'product_name' => 'required|max:15',
+            'product_brand' => 'required|max:15',
+            'quantity' => 'required|max:8',
+            'price' => 'required|max:8',
+            'weight' => 'required|max:8',
+            'product_category_id' => 'required|max:8',
+        ]);
+
+        $product->update([
+            'product_name' => $request->product_name,
+            'product_brand' => $request->product_brand,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'weight' => $request->weight,
+            'product_category_id' => $request->product_category_id,
+
+        ]);
+        return to_route('products.index');
     }
 
     /**
@@ -122,8 +140,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return to_route('products.index');
     }
 }
