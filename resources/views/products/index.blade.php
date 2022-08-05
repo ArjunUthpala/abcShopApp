@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-2xl text-gray-800 leading-tight">
-            {{ __('Product Categories') }}
+            {{ __('Products') }}
         </h2>
     </x-slot>
 
@@ -15,27 +15,47 @@
                             Id
                         </td>
                         <td>
-                            Category
+                            Product Name
                         </td>
-                        <td colspan="2">
-                            
+                        <td>
+                            Brand
+                        </td>
+                        <td>
+                            Quantity
+                        </td>
+                        <td>
+                            Price (Rs.)
+                        </td>
+                        <td>
+                            Weight (kg)
+                        </td>
+                        <td>
+                            Product Category
+                        </td>
+                        <td>
+                          
                         </td>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                @foreach ($product_categories as $category)
+                @foreach ($products as $product)
                 <tr>
-                    <td>{{$category->id}}</td>
-                    <td>{{$category->category_name}}</td>
+                    <td>{{$product->id}}</td>
+                    <td>{{$product->product_name}}</td>
+                    <td>{{$product->product_brand}}</td>
+                    <td>{{$product->quantity}}</td>
+                    <td>{{$product->price}}</td>
+                    <td>{{$product->weight}}</td>
+                    <td>{{$product->category_name}}</td>
                     <td><a type="button" href="" class="btn-warning btn-sm text-dark font-bold">Edit</a> <a type="button" class="mx-2 btn-danger btn-sm text-light font-bold">Delete</a></td>   
                 </tr> 
                 @endforeach
             </tbody>
             <tfoot>
-                <x-anchor class="mb-3" style="text-decoration:none"  href="{{ route('product_categories.create') }}" > Add New Category</x-anchor> 
+                <x-anchor class="mb-3" style="text-decoration:none"  href="{{ route('products.create') }}" > Add New Product</x-anchor> 
        </tfoot>
               </table>
-              {!! $product_categories->render() !!}
+              {!! $products->render() !!}
         </div>
     </div>
   

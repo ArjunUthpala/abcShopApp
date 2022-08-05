@@ -20,7 +20,8 @@
                 <div class="col">
                     <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg" style="width:100%">
                         <div class=" bg-indigo-200 " style=" text-align: center;">
-                            <x-anchor class="m-3" style="text-decoration:none"  href="{{ route('product_categories.index') }}" >Product Categories</x-anchor> 
+                            <x-anchor class="m-3" style="text-decoration:none"  href="{{ route('products.index') }}" >Products</x-anchor> 
+                           
                         </div>
                     </div>
                 </div>
