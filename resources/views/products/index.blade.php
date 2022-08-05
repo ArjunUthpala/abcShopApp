@@ -47,15 +47,17 @@
                     <td>{{$product->price}}</td>
                     <td>{{$product->weight}}</td>
                     <td>{{$product->category_name}}</td>
-                    <td><a type="button" href="" class="btn-warning btn-sm text-dark font-bold">Edit</a> <a type="button" class="mx-2 btn-danger btn-sm text-light font-bold">Delete</a></td>   
+                    <td><a type="button" href="{{ route('products.edit', $product->id) }}" class="btn-warning btn-sm text-dark font-bold">Edit</a> <a type="button" class="mx-2 btn-danger btn-sm text-light font-bold">Delete</a></td>   
                 </tr> 
                 @endforeach
             </tbody>
             <tfoot>
-                <x-anchor class="mb-3" style="text-decoration:none"  href="{{ route('products.create') }}" > Add New Product</x-anchor> 
+                <x-anchor class="mb-3 ml-auto" style="text-decoration:none"  href="{{ route('products.create') }}" > Add New Product</x-anchor> 
+                
        </tfoot>
               </table>
               {!! $products->render() !!}
+              <x-anchor class="mb-3 ml-auto" style="text-decoration:none"  href="{{ route('dashboard') }}" > Back to Home</x-anchor> 
         </div>
     </div>
   

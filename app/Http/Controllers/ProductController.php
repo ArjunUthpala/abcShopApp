@@ -36,7 +36,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $category_types = ProductCategory::get();
+      // dd($category_types);
+      //  return view('products.create')->with('category_types', $category_types);
+      return view('products.create', compact('category_types'));
     }
 
     /**
@@ -47,7 +50,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'product_name' => 'required|max:15',
+            'product_brand' => 'required|max:15',
+            'quantity' => 'required|max:8',
+            'price' => 'required|max:8',
+            'weight' => 'required|max:8',
+            'product_category_id' => 'required|max:8',
+        ]);
+
+        Product::create([
+            'product_name' => $request->product_name,
+            'product_brand' => $request->product_brand,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'weight' => $request->weight,
+            'product_category_id' => $request->product_category_id,
+
+        ]);
+        return to_route('products.index');
     
     }
 
@@ -70,7 +91,17 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::where('id', $id)->firstOrFail();
+
+        $categorydata = ProductCategory::where('id', $product->product_category_id)->firstOrFail();
+
+        $category_types = ProductCategory::get();
+        // dd($category_types);
+        //  return view('products.create')->with('category_types', $category_types);
+       
+       
+        //$product = Product::where('id', $id)->firstOrFail();
+        return view('products.edit', compact('category_types'))->with('categorydata', $categorydata)->with('product', $product);
     }
 
     /**

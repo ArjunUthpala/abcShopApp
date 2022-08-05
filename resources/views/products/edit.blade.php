@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-2xl text-gray-800 leading-tight">
-            {{ __('Add New Product') }}
+            {{ __('Edit Product') }}
         </h2>
     </x-slot>
     <div class="pt-3">
@@ -9,48 +9,55 @@
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 bg-yellow-300 border-b border-gray-200">
                    
-                    <form action="{{ route('products.store') }}" method="POST">
+                    <form action="{{ route('products.update', $product->id) }}" method="POST">
+                        @method('put')
                         @csrf
-                        <x-input type="text" name="product_name" id="" class="w-full" placeholder="Product Name" :value="@old('product_name')"></x-input>
+                        <label class="font-bold">Product Name</label>
+                        <x-input type="text" name="product_name" id="" class="w-full mb-3" placeholder="Product Name" :value="@old('product_name', $product->product_name)"></x-input>
                         @error('category_name')
                         <div  role="alert">
                             {{ $message }}
                           </div>
                         @enderror
-                        <x-input type="text" name="product_brand" id="" class="w-full mt-3" placeholder="Brand Name" :value="@old('product_brand')"></x-input>
+                        <label class="font-bold">Brand Name</label>
+                        <x-input type="text" name="product_brand" id="" class="w-full mb-3" placeholder="Brand Name" :value="@old('product_brand', $product->product_brand)"></x-input>
                         @error('product_brand')
                         <div  role="alert">
                             {{ $message }}
                           </div>
                         @enderror
-                        <x-input type="number" name="quantity" min="0"  id="" class="w-full mt-3" placeholder="Quantity" :value="@old('quantity')"></x-input>
+                        <label class="font-bold">Quantity</label>
+                        <x-input type="number" name="quantity" min="0"  id="" class="w-full mb-3" placeholder="Quantity" :value="@old('quantity', $product->quantity)"></x-input>
                         @error('quantity')
                         <div  role="alert">
                             {{ $message }}
                           </div>
                         @enderror
-                        <x-input type="number" name="price" min="0" step="any"  id="" class="w-full mt-3" placeholder="Price (Rs)" :value="@old('price')"></x-input>
+                        <label class="font-bold">Price (Rs)</label>
+                        <x-input type="number" name="price" min="0" step="any"  id="" class="w-full mb-3" placeholder="Price (Rs)" :value="@old('price', $product->price)"></x-input>
                         @error('price')
                         <div  role="alert">
                             {{ $message }}
                           </div>
                         @enderror
-                        <x-input type="number" name="weight" min="0" step="any"  id="" class="w-full mt-3" placeholder="Weight (Kg)" :value="@old('weight')"></x-input>
+                        <label class="font-bold">Weight (Kg)</label>
+                        <x-input type="number" name="weight" min="0" step="any"  id="" class="w-full mb-3" placeholder="Weight (Kg)" :value="@old('weight', $product->weight)"></x-input>
                         @error('weight')
                         <div  role="alert">
                             {{ $message }}
                           </div>
                         @enderror
-                        
-                        <select name="product_category_id" id="product_category_id" class="w-full mt-3 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" >
-                            <option value="" class="" disabled selected>-- Select a Category --</option>
+                        <label class="font-bold">Product Category</label>
+                        <select name="product_category_id" id="product_category_id" class="w-full  rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" >
+                            <option value="" class="" disabled selected>{{ $categorydata->category_name}}</option>
                             @foreach ($category_types as $type)
                             <option value="{{ $type->id }}">{{ $type->category_name }}</option>    
                             @endforeach
 
                         </select><br>
                         <div></div>
-                        <x-button class="mt-3">Add Product</x-button>
+                       
+                        <x-button class="mt-3">Edit Product</x-button>
                                     </form>
                 </div>
             </div>
