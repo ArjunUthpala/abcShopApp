@@ -12,7 +12,7 @@
                     <form action="{{ route('products.store') }}" method="POST">
                         @csrf
                         <x-input type="text" name="product_name" id="" class="w-full" placeholder="Product Name" :value="@old('product_name')"></x-input>
-                        @error('category_name')
+                        @error('product_name')
                         <div  role="alert">
                             {{ $message }}
                           </div>
