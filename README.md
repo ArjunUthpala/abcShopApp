@@ -18,10 +18,12 @@
 ## things i referred
 - Laravel documentation
 - Stackoverflow
+- Youtube
+- LinkedIn Learning
 
 ## things i learnt
-- I was familiar with GitHub Desktop, but this time i learned to work with cmd
-- Exposed to composer dependancy manager, Blade UI components, Tailwind CSS
+- I was familiar with GitHub Desktop, but this time i learned to work with cmd (using terminal)
+- Exposed to composer dependancy manager, Blade UI components, Tailwind CSS, csfr, artisan, npm
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
